@@ -5,10 +5,12 @@ import { getReviews } from "../utils/api";
 
 export const Reviews = () => {
   const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getReviews().then((currentReviews) => {
       setReviews(currentReviews);
+      setIsLoading(false);
     });
   }, []);
 
@@ -17,9 +19,13 @@ export const Reviews = () => {
       <h2>Reviews Page</h2>
       <ReviewsForm />
       <div className="review-card-container">
-        {reviews.map((review) => {
-          return <ReviewsCard review={review} key={review.review_id} />;
-        })}
+        {isLoading ? (
+          <p>Page is Loading</p>
+        ) : (
+          reviews.map((review) => {
+            return <ReviewsCard review={review} key={review.review_id} />;
+          })
+        )}
       </div>
     </div>
   );
