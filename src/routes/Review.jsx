@@ -1,18 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getSingleReview } from "../utils/api";
+import { getSingleReview, patchReviewVote } from "../utils/api";
 
 export const Review = () => {
   const { review_id } = useParams();
   const [review, setReview] = useState({});
-  const [ isLoading, setIsLoading ]= useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getSingleReview(review_id).then((review) => {
       setReview(review);
       setIsLoading(false);
     });
-  }, []);
+  }, [review_id]);
+
+  const incVote = () => {
+    const reviewCopy = { ...review };
+    reviewCopy.votes++;
+    setReview(reviewCopy);
+    patchReviewVote(review_id).catch(() => {
+      reviewCopy.votes--;
+      setReview(reviewCopy);
+    });
+  };
 
   return (
     <div>
@@ -27,7 +37,16 @@ export const Review = () => {
           <p>Category: {review.category}</p>
           <p>Designer: {review.designer}</p>
           <p>{review.review_body}</p>
-          <p>Votes: {review.votes}</p>
+          <p>
+            Votes: {review.votes}{" "}
+            <button
+              onClick={() => {
+                incVote();
+              }}
+            >
+              Add Vote
+            </button>
+          </p>
         </div>
       )}
     </div>

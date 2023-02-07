@@ -74,6 +74,10 @@ button {
   width:100%;
 }
 
+.review_page_container button{
+  display: inline;
+}
+
 
 
 /*Review Page*/
