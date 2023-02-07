@@ -74,6 +74,27 @@ button {
   width:100%;
 }
 
-
-
 /*Review Page*/
+
+/*comments page*/
+.comment-container{
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: rgb(242, 242, 242);
+  padding:10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 1px solid black;
+}
+
+.comment{
+  border:1px solid black;
+  margin: 10px;
+  border-radius: 10px;
+  padding:8px;
+  background-color: white;
+
+}
+
+
+
+/*comments page*/
