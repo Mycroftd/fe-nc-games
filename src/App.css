@@ -1,3 +1,7 @@
+body{
+  padding: 0px 8px;
+}
+
 h2 {
   text-align: center;
 }
@@ -32,6 +36,14 @@ button {
   background-color: rgb(242, 242, 242);
   padding: 8px;
   box-sizing: border-box;
+  cursor:pointer;
+  
+}
+
+.reviews-card:hover {
+  transition: background-color 500ms linear;
+  background-color: #b5d6f3;
+  
 }
 
 .reviews-card img {
@@ -48,3 +60,20 @@ button {
 }
 
 /*reviews page*/
+
+/*Review Page*/
+.review_page_container{
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: rgb(242, 242, 242);
+  padding:10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 1px solid black;
+}
+.review_page_container img{
+  width:100%;
+}
+
+
+
+/*Review Page*/
