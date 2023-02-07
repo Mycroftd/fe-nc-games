@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getSingleReview, patchReviewVote } from "../utils/api";
+import { getSingleReview } from "../utils/api";
+import { Comments } from "./Comments";
 
 export const Review = () => {
   const { review_id } = useParams();
   const [review, setReview] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [errMessage, setErrorMessage] = useState("");
+
 
   useEffect(() => {
     getSingleReview(review_id).then((review) => {
@@ -26,6 +28,7 @@ export const Review = () => {
       setErrorMessage(err.message);
     });
   };
+
 
   return (
     <div>
@@ -51,6 +54,7 @@ export const Review = () => {
             </button>            
           </p>
           {errMessage.length === 0?(<p></p>):(<p>{errMessage}</p>)}
+
         </div>
       )}
     </div>
