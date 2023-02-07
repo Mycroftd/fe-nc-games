@@ -17,7 +17,7 @@ export const Comments = () => {
 
   return (
     <div>
-      <h2>Comments for Review {review_id}</h2>
+      <h2>Comments</h2>
       {isLoading ? (
         <p>Is loading</p>
       ) : (
