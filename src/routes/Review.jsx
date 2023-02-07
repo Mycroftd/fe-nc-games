@@ -6,6 +6,7 @@ export const Review = () => {
   const { review_id } = useParams();
   const [review, setReview] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [errMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     getSingleReview(review_id).then((review) => {
@@ -15,12 +16,14 @@ export const Review = () => {
   }, [review_id]);
 
   const incVote = () => {
+    setErrorMessage("");
     const reviewCopy = { ...review };
     reviewCopy.votes++;
     setReview(reviewCopy);
-    patchReviewVote(review_id).catch(() => {
+    patchReviewVote(review_id).catch((err) => {
       reviewCopy.votes--;
       setReview(reviewCopy);
+      setErrorMessage(err.message);
     });
   };
 
@@ -45,8 +48,9 @@ export const Review = () => {
               }}
             >
               Add Vote
-            </button>
+            </button>            
           </p>
+          {errMessage.length === 0?(<p></p>):(<p>{errMessage}</p>)}
         </div>
       )}
     </div>
