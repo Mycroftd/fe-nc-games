@@ -61,7 +61,7 @@ button {
 
 /*reviews page*/
 
-/*Review Page*/
+
 .review_page_container{
   max-width: 600px;
   margin: 20px auto;
@@ -74,7 +74,13 @@ button {
   width:100%;
 }
 
+
+.review_page_container button{
+  display: inline;
+}
+
 /*Review Page*/
+
 
 /*comments page*/
 .comment-container{
@@ -92,7 +98,6 @@ button {
   border-radius: 10px;
   padding:8px;
   background-color: white;
-
 }
 
 
