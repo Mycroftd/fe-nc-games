@@ -9,6 +9,7 @@ return(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Reviews />} />
+      <Route path="/reviews/:category" element={<Reviews />} />
       <Route path="/review/:review_id" element={<Review/>} />
     </Routes>
   </BrowserRouter>

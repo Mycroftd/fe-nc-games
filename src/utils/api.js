@@ -4,10 +4,13 @@ const myApi = axios.create({
   baseURL: "https://be-nc-games-t92d.onrender.com/api",
 });
 
-export const getReviews = () => {
-  return myApi.get("/reviews").then((res) => {
-    return res.data.reviews;
-  });
+export const getReviews = (category) => {
+  console.log(category);
+  return myApi
+    .get("/reviews", { params: { category: category } })
+    .then((res) => {
+      return res.data.reviews;
+    });
 };
 
 export const getSingleReview = (review_id) => {
@@ -33,13 +36,18 @@ export const patchReviewVote = (review_id) => {
 };
 
 export const postReview = (review_id, username, body) => {
-  console.log(review_id, username, body);
   return myApi
     .post(`reviews/${review_id}/comments`, {
       username,
-      body
+      body,
     })
     .then((res) => {
       return res.data.comment;
     });
+};
+
+export const getCategories = () => {
+  return myApi.get("categories").then((res) => {
+    return res.data.categories;
+  });
 };
