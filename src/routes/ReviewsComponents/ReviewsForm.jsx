@@ -13,13 +13,14 @@ export const ReviewsForm = () => {
     });
   }, []);
 
-  const updatePage = () =>{
+  const updatePage = (e) =>{
+    e.preventDefault();
     navigate('/reviews/' + selectedCategory);
   }
 
   return (
     <div className="reviews-form-container">
-      <form>
+      <form onSubmit={updatePage}>
         <label htmlFor="sort-by">
           Sort By:
           <input id="sort-by" type="text" />
@@ -37,7 +38,7 @@ export const ReviewsForm = () => {
             })}
           </select>
         </label>
-        <button onClick={updatePage}type="submit">Update</button>
+        <button type="submit">Update</button>
       </form>
     </div>
   );
