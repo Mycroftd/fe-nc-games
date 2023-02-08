@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CommentCard } from "./CommentsComponents/CommentCard";
+import {AddACommentForm} from "./CommentsComponents/AddACommentForm";
 import { getComments } from "../utils/api";
 
 export const Comments = () => {
@@ -18,6 +19,7 @@ export const Comments = () => {
   return (
     <div>
       <h2>Comments</h2>
+      <AddACommentForm review_id={review_id} setReviewComments={setReviewComments}/>
       {isLoading ? (
         <p>Is loading</p>
       ) : (
