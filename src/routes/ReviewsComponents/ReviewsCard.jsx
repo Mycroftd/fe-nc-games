@@ -20,6 +20,7 @@ export const ReviewsCard = ({ review }) => {
       <h3>{review.title}</h3>
       <img src={review.review_img_url} alt={review.title} />
       <p>{stringMaxLength}</p>
+      <p>Category: {review.category}</p>
       <p>Votes: {review.votes}</p>
     </div>
   );
