@@ -20,6 +20,12 @@ button {
   margin: 20px auto;
 }
 
+button[disabled]{
+  background-color: grey;
+}
+
+
+
 /*reviews page*/
 .review-card-container {
   display: flex;
@@ -92,6 +98,13 @@ button {
   border: 1px solid black;
 }
 
+.comment-container span{
+  text-align: center;
+  color:red;
+  font-weight: bold;
+  font-size:x-large;
+}
+
 .comment{
   border:1px solid black;
   margin: 10px;
@@ -111,6 +124,13 @@ button {
 .commentForm h3{
   text-align: center;
 
+}
+
+.commentForm p{
+  text-align: center;
+  color:#4299e1;
+  font-weight: bold;
+  font-size:x-large;
 }
 
 .commentForm input[type="text"]{
