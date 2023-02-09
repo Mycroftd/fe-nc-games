@@ -63,3 +63,7 @@ export const getUsers = () =>{
     return res.data.users;
   })
 }
+
+export const deleteComment = (comment_id) =>{
+  return myApi.delete("comments/" + comment_id)
+}
