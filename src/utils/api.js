@@ -56,3 +56,10 @@ export const getCategories = () => {
     return res.data.categories;
   });
 };
+
+
+export const getUsers = () =>{
+  return myApi.get("users").then((res)=>{
+    return res.data.users;
+  })
+}
