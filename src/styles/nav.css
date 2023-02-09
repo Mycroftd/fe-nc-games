@@ -1,0 +1,50 @@
+body{
+    margin:0px;
+    padding:0px;
+}
+
+.active{
+    color:black;
+}
+
+.menuBackground{
+    background-color: rgb(231, 231, 231);
+    margin: 0px;
+    border-bottom: 1px solid rgb(178, 178, 178);
+    position:sticky;
+    top:0px;
+    left:0px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.menuContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    max-width:650px;
+    margin: auto;
+}
+
+.title{
+    padding:15px;
+}
+
+.title{
+    font-weight: bold;
+}
+
+.nav{    
+    height:50px;
+    display: block;
+    max-width: 600px;
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+
+a{
+    color:grey;
+    padding:15px;
+    display: inline-block;
+    text-decoration: none;
+}
