@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useSearchParams } from "react-router-dom";
 import { ReviewsForm } from "./ReviewsComponents/ReviewsForm";
 import { ReviewsCard } from "./ReviewsComponents/ReviewsCard";
 import { getReviews } from "../utils/api";
 
 export const Reviews = () => {
   const { category } = useParams();
+  let [searchParams] = useSearchParams();
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  
+  const sortBy = searchParams.get("sort_by");
+  const sortOrder = searchParams.get("order");
 
   useEffect(() => {
     let cat;
@@ -16,11 +20,13 @@ export const Reviews = () => {
     } else {
       cat = category;
     }
-    getReviews(cat).then((currentReviews) => {
+    getReviews(cat,sortBy,sortOrder).then((currentReviews) => {
       setReviews(currentReviews);
       setIsLoading(false);
+    }).catch((error) => {
+      console.log(error);
     });
-  }, [category]);
+  }, [category,searchParams,sortBy,sortOrder]);
 
   return (
     <div>

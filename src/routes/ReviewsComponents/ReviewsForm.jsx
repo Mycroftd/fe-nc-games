@@ -3,8 +3,11 @@ import { getCategories } from "../../utils/api";
 import { useNavigate } from "react-router-dom";
 
 export const ReviewsForm = () => {
+  const sorbyArr = ["title", "created_at", "votes"];
   const [categories, setCategories] = useState([]);
+  const [selectedSort, setSelectedSort] = useState("title");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedOrder, setSelectedOrder] = useState("Ascending");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,7 +18,16 @@ export const ReviewsForm = () => {
 
   const updatePage = (e) => {
     e.preventDefault();
-    navigate("/reviews/" + selectedCategory);
+    let order = "";
+    if (selectedOrder === "Ascending") {
+      order = "ASC";
+    } else {
+      order = "DESC";
+    }
+    navigate({
+      pathname: "/reviews/" + selectedCategory,
+      search: `?sort_by=${selectedSort}&order=${order}`,
+    });
   };
 
   return (
@@ -23,9 +35,26 @@ export const ReviewsForm = () => {
       <form onSubmit={updatePage}>
         <label htmlFor="sort-by">
           Sort By:
-          <input id="sort-by" type="text" />
+          <select
+            id="sort-by"
+            value={selectedSort}
+            onChange={(e) => setSelectedSort(e.target.value)}
+          >
+            {sorbyArr.map((sortby) => {
+              return <option key={sortby}>{sortby}</option>;
+            })}
+          </select>
         </label>
-
+        <label htmlFor="sort-by">
+          Order: 
+          <select
+            value={selectedOrder}
+            onChange={(e) => setSelectedOrder(e.target.value)}
+          >
+            <option>Ascending</option>
+            <option>Descending</option>
+          </select>
+        </label>
         <label htmlFor="category">
           Category:
           <select
