@@ -20,6 +20,12 @@ button {
   margin: 20px auto;
 }
 
+button[disabled]{
+  background-color: grey;
+}
+
+
+
 /*reviews page*/
 .review-card-container {
   display: flex;

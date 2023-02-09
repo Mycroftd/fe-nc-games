@@ -26,7 +26,7 @@ export const Comments = () => {
         <div className="comment-container">
           {reviewComments.length > 0 ? (
             reviewComments.map((comment) => {
-              return <CommentCard comment={comment} key={comment.comment_id} />;
+              return <CommentCard setReviewComments={setReviewComments} comment={comment} key={comment.comment_id} />;
             })
           ) : (
             <h3>No Comments yet</h3>

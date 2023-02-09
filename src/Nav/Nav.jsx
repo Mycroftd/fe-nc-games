@@ -6,7 +6,7 @@ export const Nav = () => {
   return (
     <div className="menuBackground">
       <div className="menuContainer">
-        <div class="title">Northcoders Game Reviews</div>
+        <div className="title">Northcoders Game Reviews</div>
         <div className="nav">
           <NavLink to="/">Reviews</NavLink>
           <NavLink to="/users">Users</NavLink>
