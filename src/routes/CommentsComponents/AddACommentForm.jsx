@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import {postReview} from '../../utils/api';
+import { UserContext } from "../../context/UserProvider";
 
 export const AddACommentForm = ({ review_id,setReviewComments }) => {
-  const username = "weegembump";
+  const userValue = useContext(UserContext);
+  const username = userValue.loggedInUser;
   const [comment, setComment] = useState("");
   const [messageErrorMsg, setmessageErrorMsg] = useState("");
   const [submitErrorMessage, setsubmitErrorMessage] = useState("");
