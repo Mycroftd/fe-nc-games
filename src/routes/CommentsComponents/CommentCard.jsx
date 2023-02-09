@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { deleteComment } from "../../utils/api";
+import { UserContext } from "../../context/UserProvider";
 
-export const CommentCard = ({ comment,setReviewComments }) => {
+export const CommentCard = ({ comment, setReviewComments }) => {
+  const userValue = useContext(UserContext);
+  const username = userValue.loggedInUser;
 
   const deleteCommentOnClick = (e, commentId) => {
     e.currentTarget.disabled = true;
     deleteComment(commentId).then(() => {
-      setReviewComments((comments) =>{
+      setReviewComments((comments) => {
         let copiedComments = [...comments];
         return copiedComments.filter((comment) => {
           return comment.comment_id !== commentId;
-        })
+        });
       });
     });
   };
@@ -21,13 +24,15 @@ export const CommentCard = ({ comment,setReviewComments }) => {
       <p>{comment.body}</p>
       <p>{comment.created_at.substring(0, 10)}</p>
       <p>Votes: {comment.votes}</p>
-      <button
-        onClick={(e) => {
-          deleteCommentOnClick(e, comment.comment_id);
-        }}
-      >
-        Delete Comment
-      </button>
+      {username === comment.author ? (
+        <button
+          onClick={(e) => {
+            deleteCommentOnClick(e, comment.comment_id);
+          }}
+        >
+          Delete Comment
+        </button>
+      ) : null}
     </div>
   );
 };
