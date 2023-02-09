@@ -2,20 +2,28 @@ import React, { useContext } from "react";
 import { deleteComment } from "../../utils/api";
 import { UserContext } from "../../context/UserProvider";
 
-export const CommentCard = ({ comment, setReviewComments }) => {
+export const CommentCard = ({ comment, setReviewComments, setMessage }) => {
   const userValue = useContext(UserContext);
   const username = userValue.loggedInUser;
 
+
+
   const deleteCommentOnClick = (e, commentId) => {
     e.currentTarget.disabled = true;
-    deleteComment(commentId).then(() => {
-      setReviewComments((comments) => {
-        let copiedComments = [...comments];
-        return copiedComments.filter((comment) => {
-          return comment.comment_id !== commentId;
+    setMessage("");
+    deleteComment(commentId)
+      .then(() => {
+        setReviewComments((comments) => {
+          let copiedComments = [...comments];
+          return copiedComments.filter((comment) => {
+            return comment.comment_id !== commentId;
+          });
         });
+        setMessage("Comment Deleted");
+      })
+      .catch((error) => {
+        setMessage("Error Deleting the Comment");
       });
-    });
   };
 
   return (

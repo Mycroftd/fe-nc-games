@@ -27,7 +27,7 @@ export const Users = () => {
   return (
     <div className="allUsersContainer">
       <h2>Users</h2>
-      <h3>Logged in as: {userValue.loggedInUser}</h3>
+      {userValue.loggedInUser === ""?(<h3>Not logged In</h3>):(<h3>Logged in as: {userValue.loggedInUser}</h3>)}      
       <div>
         {users.map((user) => {
           return (

@@ -48,3 +48,9 @@ a{
     display: inline-block;
     text-decoration: none;
 }
+
+span{
+    color:#4299e1;
+    cursor: pointer;
+    padding-right: 20px;
+}
