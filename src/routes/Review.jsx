@@ -2,17 +2,21 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getSingleReview, patchReviewVote } from "../utils/api";
 import { Comments } from "./Comments";
+import { ErrorCustomer } from "../error/ErrorCustomer";
 
 export const Review = () => {
   const { review_id } = useParams();
   const [review, setReview] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [errMessage, setErrorMessage] = useState("");
+  const [pageError, setPageError] = useState("");
 
   useEffect(() => {
     getSingleReview(review_id).then((review) => {
       setReview(review);
       setIsLoading(false);
+    }).catch((err) => {
+      setPageError("Review Not Found");
     });
   }, [review_id]);
 
@@ -27,6 +31,12 @@ export const Review = () => {
       setErrorMessage(err.message);
     });
   };
+
+  if(pageError !== ""){
+    return (
+      <ErrorCustomer errorName={pageError}/>
+    )
+  }
 
   return (
     <div>
