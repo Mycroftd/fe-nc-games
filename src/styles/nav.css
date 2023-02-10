@@ -24,15 +24,10 @@ body{
     justify-content: space-between;
     max-width:650px;
     margin: auto;
+
 }
 
-.title{
-    padding:15px;
-}
 
-.title{
-    font-weight: bold;
-}
 
 .nav{    
     height:50px;
@@ -53,4 +48,62 @@ span{
     color:#4299e1;
     cursor: pointer;
     padding-right: 20px;
+}
+
+.title{
+    font-weight: bold;
+}
+
+.burger {
+    width: 25px;
+    height: 2px;
+    background-color: black;
+    margin: 4px 0;
+    display: none;
+    
+  }
+
+
+@media only screen and (max-width: 450px){
+
+    .burger{
+        display: block;
+    }
+
+    .titleContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items:center;
+    }   
+
+    .menuContainer{
+        flex-direction: column;     
+    }
+    .nav{    
+        display: flex;
+        flex-direction: column;
+        height: min-content;
+        align-items: center;
+        height: 0px;
+        overflow: hidden;
+    }
+    .nav a{
+        text-align: center;
+    }
+
+    .burgerContainer{
+        margin-right:20px;
+        cursor:pointer;
+    }
+
+    #closeMenu{       
+        height: 0px;
+    }
+
+    #openMenu{        
+        height: min-content;
+    }
+
+    
 }
