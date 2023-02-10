@@ -14,7 +14,7 @@ export const Nav = () => {
       <div className="menuContainer">
         <div className="title">Northcoders Game Reviews</div>
         <div className="nav">
-          <NavLink to="/">Reviews</NavLink>
+          <NavLink id="reviewNavLink" to="/reviews">Reviews</NavLink>
           <NavLink to="/users">Users</NavLink>
           {username === ""?null:(
             <span onClick={()=>{userValue.setLoggedInUser("")}}>{username} Log Out</span>

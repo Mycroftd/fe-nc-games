@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams,useSearchParams } from "react-router-dom";
 import { ReviewsForm } from "./ReviewsComponents/ReviewsForm";
 import { ReviewsCard } from "./ReviewsComponents/ReviewsCard";
+import { ErrorCustomer } from "../error/ErrorCustomer";
 import { getReviews } from "../utils/api";
 
 export const Reviews = () => {
@@ -9,6 +10,7 @@ export const Reviews = () => {
   let [searchParams] = useSearchParams();
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [pageError, setPageError] = useState("");
   
   const sortBy = searchParams.get("sort_by");
   const sortOrder = searchParams.get("order");
@@ -24,9 +26,16 @@ export const Reviews = () => {
       setReviews(currentReviews);
       setIsLoading(false);
     }).catch((error) => {
-      console.log(error);
+      setPageError("Category Not Found");
     });
   }, [category,searchParams,sortBy,sortOrder]);
+
+
+  if(pageError !== ""){
+    return (
+      <ErrorCustomer errorName={pageError}/>
+    )
+  }
 
   return (
     <div>

@@ -1,6 +1,9 @@
-.errContainer{
+.error{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 3rem;
     color:grey;
+    min-height: calc(100vh - 50px);
+    background-color: rgb(238, 238, 238);
 }
