@@ -1,109 +1,109 @@
-body{
-    margin:0px;
-    padding:0px;
+body {
+  margin: 0px;
+  padding: 0px;
 }
 
-.active{
-    color:black;
+.active {
+  color: black;
 }
 
-.menuBackground{
-    background-color: rgb(231, 231, 231);
-    margin: 0px;
-    border-bottom: 1px solid rgb(178, 178, 178);
-    position:sticky;
-    top:0px;
-    left:0px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+.menuBackground {
+  z-index: 1000;
+  background-color: rgb(231, 231, 231);
+  margin: 0px;
+  border-bottom: 1px solid rgb(178, 178, 178);
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.menuContainer{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    max-width:650px;
-    margin: auto;
-
+.menuContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  max-width: 650px;
+  margin: auto;
 }
 
-
-
-.nav{    
-    height:50px;
-    display: block;
-    max-width: 600px;
-    box-sizing: border-box;
-    padding-left: 20px;
+.nav {
+  height: 50px;
+  display: block;
+  max-width: 600px;
+  box-sizing: border-box;
+  padding-left: 20px;
 }
 
-a{
-    color:grey;
-    padding:15px;
-    display: inline-block;
-    text-decoration: none;
+a {
+  color: grey;
+  padding: 15px;
+  display: inline-block;
+  text-decoration: none;
 }
 
-span{
-    color:#4299e1;
-    cursor: pointer;
-    padding-right: 20px;
+span {
+  color: #4299e1;
+  cursor: pointer;
+  padding-right: 20px;
 }
 
-.title{
-    font-weight: bold;
+.title {
+  font-weight: bold;
 }
 
 .burger {
-    width: 25px;
-    height: 2px;
-    background-color: black;
-    margin: 4px 0;
-    display: none;
-    
+  width: 25px;
+  height: 2px;
+  background-color: black;
+  margin: 4px 0;
+  display: none;
+}
+
+#closeMenu {
+  height: 0;
+  transition: height 1000ms;
+}
+
+@media only screen and (max-width: 650px) {
+  #openMenu {
+    height: 150px;
+    transition: height 1000ms;
   }
 
+  .burger {
+    display: block;
+  }
 
-@media only screen and (max-width: 450px){
+  .titleContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    .burger{
-        display: block;
-    }
+  .menuContainer {
+    flex-direction: column;
+  }
 
-    .titleContainer{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items:center;
-    }   
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+  .nav a {
+    text-align: center;
+    display: block;
+  }
 
-    .menuContainer{
-        flex-direction: column;     
-    }
-    .nav{    
-        display: flex;
-        flex-direction: column;
-        height: min-content;
-        align-items: center;
-        height: 0px;
-        overflow: hidden;
-    }
-    .nav a{
-        text-align: center;
-    }
+  .burgerContainer {
+    margin-right: 20px;
+    cursor: pointer;
+  }
 
-    .burgerContainer{
-        margin-right:20px;
-        cursor:pointer;
-    }
-
-    #closeMenu{       
-        height: 0px;
-    }
-
-    #openMenu{        
-        height: min-content;
-    }
-
-    
+  .loggedInUser {
+    order: -10;
+    padding: 10px 0px;
+  }
 }

@@ -40,12 +40,12 @@ export const Review = () => {
   }
 
   return (
-    <div>
+    <main className="page_outer">
       {isLoading ? (
         <p>Page is Loading</p>
       ) : (
         <div>
-          <div className="review_page_container">
+          <section className="review_page_container">
             <h2>Review {review.review_id}</h2>
             <h3>{review.title}</h3>
             <img src={review.review_img_url} alt={review.title} />
@@ -64,10 +64,10 @@ export const Review = () => {
               </button>
             </p>
             {errMessage.length === 0 ? <p></p> : <p>{errMessage}</p>}
-          </div>
+          </section>
           <Comments />
         </div>
       )}
-    </div>
+    </main>
   );
 };

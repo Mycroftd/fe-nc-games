@@ -85,6 +85,10 @@ button[disabled]{
   display: inline;
 }
 
+.page_outer{
+  padding: 0px 10px;
+}
+
 /*Review Page*/
 
 

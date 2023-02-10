@@ -2,28 +2,34 @@ import "../styles/nav.css";
 import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../context/UserProvider";
-import { Transition } from 'react-transition-group';
 
 export const Nav = () => {
   const userValue = useContext(UserContext);
-  const [menuVisible, setMenuVisible] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const username = userValue.loggedInUser;
 
-  const changeMenu = () => {
-    setMenuVisible((old) => {
-      return !old;
+  const openMenu = () => {
+    setMenuOpen((previousMenu) => {
+      return !previousMenu;
     });
   };
+  /*resets menu if opened while resizing*/
+  window.addEventListener("resize", () => {
+    if (window.innerHeight > 650) {
+      setMenuOpen(false);
+    }
+  });
+
   return (
     <div className="menuBackground">
       <div className="menuContainer">
-        <div className="titleContainer">
+        <header className="titleContainer">
           <NavLink to="/reviews" className="title">
             Northcoders Game Reviews
           </NavLink>
           <div
             onClick={() => {
-              changeMenu();
+              openMenu();
             }}
             className="burgerContainer"
           >
@@ -31,14 +37,15 @@ export const Nav = () => {
             <div className="burger"></div>
             <div className="burger"></div>
           </div>
-        </div>
-        <div className="nav" id={menuVisible?("openMenu"):("closeMenu")}>
+        </header>
+        <nav id={menuOpen ? "openMenu" : "closeMenu"} className="nav">
           <NavLink id="reviewNavLink" to="/reviews">
             Reviews
           </NavLink>
           <NavLink to="/users">Users</NavLink>
           {username === "" ? null : (
             <span
+              className="loggedInUser"
               onClick={() => {
                 userValue.setLoggedInUser("");
               }}
@@ -46,7 +53,7 @@ export const Nav = () => {
               {username} Log Out
             </span>
           )}
-        </div>
+        </nav>
       </div>
     </div>
   );

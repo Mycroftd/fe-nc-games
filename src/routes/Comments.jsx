@@ -18,7 +18,7 @@ export const Comments = () => {
   }, [review_id]);
 
   return (
-    <div>
+    <section>
       <h2>Comments</h2>
       <AddACommentForm
         setMessage={setMessage}
@@ -46,6 +46,6 @@ export const Comments = () => {
           )}
         </div>
       )}
-    </div>
+    </section>
   );
 };

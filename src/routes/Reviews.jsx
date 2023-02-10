@@ -38,10 +38,10 @@ export const Reviews = () => {
   }
 
   return (
-    <div>
+    <main className="page_outer">
       <h2>Reviews Page</h2>
       <ReviewsForm />
-      <div className="review-card-container">
+      <section className="review-card-container">
         {isLoading ? (
           <p>Page is Loading</p>
         ) : (
@@ -49,7 +49,7 @@ export const Reviews = () => {
             return <ReviewsCard review={review} key={review.review_id} />;
           })
         )}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
