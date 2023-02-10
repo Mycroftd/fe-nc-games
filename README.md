@@ -2,7 +2,7 @@
 
 ## Deployed Version
 
-To see the deployed version of this app head over to ....
+To see the deployed version of this app head over to https://euphonious-sundae-44817e.netlify.app/
 
 ## General Information about the app
 
