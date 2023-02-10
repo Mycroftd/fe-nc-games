@@ -14,6 +14,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Reviews />} />
+          <Route exact path="/reviews" element={<Reviews />} />
           <Route path="/reviews/:category" element={<Reviews />} />
           <Route path="/review/:review_id" element={<Review />} />
           <Route path="users" element={<Users />} />

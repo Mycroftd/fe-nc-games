@@ -47,9 +47,9 @@ button[disabled]{
 }
 
 .reviews-card:hover {
-  transition: background-color 500ms linear;
-  background-color: #b5d6f3;
-  
+  transition: background-color 300ms linear;
+  background-color: rgb(210, 210, 210);
+  border-color: rgb(165, 165, 165);
 }
 
 .reviews-card img {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import '../styles/review.css';
 import { useParams } from "react-router-dom";
 import { getSingleReview, patchReviewVote } from "../utils/api";
 import { Comments } from "./Comments";
