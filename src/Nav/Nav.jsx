@@ -48,6 +48,7 @@ export const Nav = () => {
               className="loggedInUser"
               onClick={() => {
                 userValue.setLoggedInUser("");
+                localStorage.removeItem('username');
               }}
             >
               {username} Log Out

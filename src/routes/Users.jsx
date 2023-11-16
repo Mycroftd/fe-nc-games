@@ -9,6 +9,7 @@ export const Users = () => {
 
   const logInUser = (username) => {
     userValue.setLoggedInUser(username);
+    localStorage.setItem('username', username);
     scrollTop();
   };
 
